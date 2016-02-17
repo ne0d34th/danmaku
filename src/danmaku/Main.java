@@ -6,6 +6,8 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
+import attackspells.Simple;
+
 public class Main implements KeyListener {
 
 	JFrame mainFrame;
@@ -29,6 +31,11 @@ public class Main implements KeyListener {
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setResizable(false);
 		mainFrame.setVisible(true);
+		
+		Danmaku danmaku = new Danmaku();
+		danmaku.addSpell(new Simple());
+		mainField.setDanmaku(danmaku);
+		
 		
 		while(true)
 		{

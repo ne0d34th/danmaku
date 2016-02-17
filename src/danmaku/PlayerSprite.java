@@ -13,7 +13,7 @@ public class PlayerSprite extends Sprite {
 	@Override
 	public void render(Graphics2D g2d) {
 		// TODO Auto-generated method stub
-		g2d.setColor(Color.WHITE);
+		g2d.setColor(Color.RED);
 		g2d.fillOval(this.position.x, this.position.y, this.width, this.height);
 		
 	}

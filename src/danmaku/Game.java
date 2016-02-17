@@ -13,7 +13,21 @@ public class Game extends Run implements DrawCanvas, KeyListener {
 	
 	Player player;
 	Vector<Sprite> sprites = new Vector<Sprite>();
+	Danmaku danmaku;
 	
+	public Danmaku getDanmaku() {
+		return danmaku;
+	}
+
+
+
+	public void setDanmaku(Danmaku danmaku) {
+		this.danmaku = danmaku;
+		danmaku.activate();
+	}
+
+
+
 	public Game() {
 		// TODO Auto-generated constructor stub
 		this.setSize(900, 600);
@@ -41,6 +55,7 @@ public class Game extends Run implements DrawCanvas, KeyListener {
 //		super.paint(g);
 		Player temp = this.player;
 		temp.getSprite().render(g2d);
+		danmaku.render(g2d);
 //		try {
 //			Thread.sleep(1000/60);
 //		} catch (InterruptedException e) {
