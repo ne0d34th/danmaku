@@ -75,5 +75,29 @@ public class Danmaku {
 			spells.get(i).stop();
 		}
 	}
+	
+	public int checkCollision(Sprite player)
+	{
+		int xp = (int)player.getPosition().getX();
+		int yp = (int)player.getPosition().getY();
+		int radp = (int)(player.getWidth()/2);
+		for(int i=0;i<this.spells.size();i++)
+		{
+			for(int j=0;j<this.spells.get(i).getBullets().size();j++)
+			{
+				Bullet temp = this.spells.get(i).getBullets().get(j);
+				int xt = (int) temp.getPosition().getX();
+				int yt = (int) temp.getPosition().getY();
+				int radt = (int) (temp.getWidth()/2);
+				int distance = (xp-xt) * (xp-xt) + (yp-yt) * (yp-yt);
+				int rad = (radt+radp) * (radt+radp);
+				if(distance <= rad)
+				{
+					return 1;
+				}
+			}
+		}
+		return 0;
+	}
 
 }
